@@ -33,8 +33,8 @@ exports.mergeAndSaveCategories = (store, categories) => {
 };
 
 exports.globalUnits = {
-    "stk.": { unit: "stk", factor: 1 },
-    blatt: { unit: "stk", factor: 1 },
+    "buc.": { unit: "stk", factor: 1 },
+    buc: { unit: "stk", factor: 1 },
     paar: { unit: "stk", factor: 1 },
     stk: { unit: "stk", factor: 1 },
     st: { unit: "stk", factor: 1 },
