@@ -31,7 +31,7 @@ exports.getCanonical = function (item, today) {
 };
 
 exports.fetchData = async function () {
-    const DM_BASE_URL = `https://product-search.services.dmtech.com/at/search/crawl?pageSize=1000&`;
+    const DM_BASE_URL = `https://product-search.services.dmtech.com/ro/search/crawl?pageSize=1000&`;
     const QUERIES = [
         "allCategories.id=010000&price.value.to=2", //~500 items
         "allCategories.id=010000&price.value.from=2&price.value.to=3", //~600 items
@@ -96,4 +96,4 @@ exports.initializeCategoryMapping = async () => {};
 
 exports.mapCategory = (rawItem) => {};
 
-exports.urlBase = "https://www.dm.at/product-p";
+exports.urlBase = "https://www.dm.ro/product-p";

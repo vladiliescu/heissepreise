@@ -40,7 +40,7 @@ exports.fetchData = async function () {
     done = false;
     result = [];
     while (!done) {
-        const PENNY_SEARCH = `https://www.penny.at/api/products?page=${page}&pageSize=${hits}`;
+        const PENNY_SEARCH = `https://www.penny.ro/api/products?page=${page}&pageSize=${hits}`;
         data = (await axios.get(PENNY_SEARCH)).data;
         done = data.count < hits || page * hits > MAXITEMS;
         page++;
@@ -53,10 +53,10 @@ async function parseCategory(url, parent, result, lookup) {
     const data = (await axios.get(url)).data;
     const dom = HTMLParser.parse(data);
     const categoryTitle = dom.querySelector('[data-test="category-title"]')?.textContent;
-    if (url != "https://www.penny.at/kategorie" && categoryTitle.includes("Alle Kategorien")) return;
+    if (url != "https://www.penny.ro/categorie/" && categoryTitle.includes("Toate categoriile de produse")) return;
     const categories = dom.querySelectorAll('[data-test="category-tree-navigation-button"]');
     for (const category of categories) {
-        const link = "https://www.penny.at" + category.getAttribute("href");
+        const link = "https://www.penny.ro" + category.getAttribute("href");
         if (!category.querySelector(".subtitle-2")) continue;
         const name = (parent ? parent + " -> " : "") + category.querySelector(".subtitle-2").innerText.trim().replace("&amp;", "&");
         if (name.startsWith("Alle Angebote")) continue;
@@ -80,7 +80,7 @@ async function parseCategory(url, parent, result, lookup) {
 
 exports.initializeCategoryMapping = async () => {
     const categories = [];
-    await parseCategory("https://www.penny.at/kategorie", null, categories, new Set());
+    await parseCategory("https://www.penny.ro/categorie", null, categories, new Set());
     utils.mergeAndSaveCategories("penny", categories);
 
     exports.categoryLookup = {};
@@ -98,7 +98,7 @@ exports.mapCategory = (rawItem) => {
     return null;
 };
 
-exports.urlBase = "https://www.penny.at/produkte/";
+exports.urlBase = "https://www.penny.ro/products/";
 
 if (require.main == module) {
     (async () => {
