@@ -1,11 +1,11 @@
 name: Deploy static content to Pages
 
-on:
-  schedule:
-    - cron: "0 8 * * *"
-  push:
-    branches: ["main"]
-  workflow_dispatch:
+# on:
+  # schedule:
+  #   - cron: "0 8 * * *"
+  # push:
+  #   branches: ["main"]
+  # workflow_dispatch:
 
 permissions:
   contents: write
