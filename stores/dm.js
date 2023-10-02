@@ -3,7 +3,7 @@ const utils = require("./utils");
 
 const units = {
     wl: { unit: "wg", factor: 1 },
-    bl: { unit: "stk", factor: 1 },
+    set: { unit: "stk", factor: 1 },
     btl: { unit: "stk", factor: 1 },
     portion: { unit: "stk", factor: 1 },
     satz: { unit: "stk", factor: 1 },
