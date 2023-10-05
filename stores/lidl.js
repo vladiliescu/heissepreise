@@ -7,7 +7,7 @@ const units = {
     "": { unit: "stk", factor: 1 },
     dosen: { unit: "stk", factor: 1 },
     flasche: { unit: "stk", factor: 1 },
-    flaschen: { unit: "stk", factor: 1 },
+    capsulă: { unit: "stk", factor: 1 },
     "pkg.": { unit: "stk", factor: 1 },
 };
 
